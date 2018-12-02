@@ -20,7 +20,7 @@ function query (data, params = {}) {
   if (filtersApplied.projection || options.returnGeometry === false) delete options.outSR
   if (filtersApplied.geometry) delete options.geometry
   if (filtersApplied.where || options.where === '1=1') delete options.where
-  if (filtersApplied.where || options.where === 'OBJECTID=OBJECTID') { delete options.where }
+  if (filtersApplied.where || options.where === 'OBJECTID=OBJECTID') delete options.where
   if (filtersApplied.offset) delete options.resultOffset
   if (filtersApplied.limit) {
     delete options.resultRecordCount
