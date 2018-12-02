@@ -20,6 +20,7 @@ function query (data, params = {}) {
   if (filtersApplied.projection || options.returnGeometry === false) delete options.outSR
   if (filtersApplied.geometry) delete options.geometry
   if (filtersApplied.where || options.where === '1=1') delete options.where
+  if (filtersApplied.where || options.where === 'OBJECTID=OBJECTID') { delete options.where }
   if (filtersApplied.offset) delete options.resultOffset
   if (filtersApplied.limit) {
     delete options.resultRecordCount
@@ -103,7 +104,7 @@ function geoservicesPostQuery (data, queriedData, params) {
  */
 function idsOnly (data) {
   const oidField = _.get(data, 'metadata.idField') || 'OBJECTID'
-  const response = { objectIdField: oidField, objectIds: [] }
+  const response = { objectIdFieldName: oidField, objectIds: [] }
   response.objectIds = data.features.map(f => { return f.attributes[oidField] })
   return response
 }
