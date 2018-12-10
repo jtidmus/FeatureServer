@@ -17,6 +17,9 @@ const templates = {
 
 const renderers = {
   esriGeometryPolygon: require('../templates/renderers/symbology/polygon.json'),
+  esriGeometryPolygon0: require('../templates/renderers/symbology/polygon0.json'),
+  esriGeometryPolygon1: require('../templates/renderers/symbology/polygon1.json'),
+  esriGeometryPolygon2: require('../templates/renderers/symbology/polygon2.json'),
   esriGeometryPolyline: require('../templates/renderers/symbology/line.json'),
   esriGeometryPoint: require('../templates/renderers/symbology/point.json'),
   classBreaks: require('../templates/renderers/classification/classBreaks.json'),
@@ -39,8 +42,15 @@ function renderLayer (data = {}, options = {}) {
   json.fields = computeFieldObject(data, 'layer', options)
   json.type = isTable(data) ? 'Table' : 'Feature Layer'
   json.geometryType = getGeomType(data)
-  json.drawingInfo.renderer = renderers[json.geometryType]
+  //json.drawingInfo.renderer = renderers[json.geometryType]
+  json.drawingInfo.renderer = renderers[json.geometryType + json.id]
   json.extent = metadata.extent ? computeExtent(metadata.extent) : computeExtent(getExtent(data))
+
+  // Hardcode SR
+  json.extent.spatialReference = {
+    wkid: 27700,
+    latestWkid: 27700
+  };
 
   if (metadata.name) json.name = metadata.name
   if (metadata.description) json.description = metadata.description

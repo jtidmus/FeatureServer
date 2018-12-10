@@ -1,4 +1,4 @@
-const defaultSR = { wkid: 4326 }
+const defaultSR = { wkid: 27700 }
 const mercatorSR = { wkid: 102100, latestWkid: 3857 }
 
 module.exports = function (sr) {

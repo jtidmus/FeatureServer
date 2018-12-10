@@ -17,10 +17,13 @@ function query (data, params = {}) {
   const options = _.cloneDeep(params)
   const hasIdField = _.has(data, 'metadata.idField')
 
+  // Ignore SRs
+  if (params.inSR) { delete options.outSR }
+  if (params.outSR) { delete options.outSR }
+
   if (filtersApplied.projection || options.returnGeometry === false) delete options.outSR
   if (filtersApplied.geometry) delete options.geometry
-  if (filtersApplied.where || options.where === '1=1') delete options.where
-  if (filtersApplied.where || options.where === 'OBJECTID=OBJECTID') delete options.where
+  if (filtersApplied.where || options.where === '1=1' || options.where === 'OBJECTID=OBJECTID') delete options.where
   if (filtersApplied.offset) delete options.resultOffset
   if (filtersApplied.limit) {
     delete options.resultRecordCount

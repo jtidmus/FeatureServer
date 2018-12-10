@@ -19,8 +19,8 @@
     "xmax": 180,
     "ymax": 90,
     "spatialReference": {
-      "wkid": 4326,
-      "latestWkid": 4326
+      "wkid": 27700,
+      "latestWkid": 27700
     }
   },
   "hasAttachments": false,

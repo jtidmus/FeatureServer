@@ -9,8 +9,8 @@
 	"description": "This is a feature service exposed with Koop, an open source project that turns APIs into features. Service Description information may not be available for all services. For more information, check out https://github.com/koopjs/koop",
 	"copyrightText": "Copyright information varies from provider to provider, for more information please contact the source of this data",
 	"spatialReference": {
-		"wkid": 4326,
-		"latestWkid": 4326
+		"wkid": 27700,
+		"latestWkid": 27700
 	},
 	"initialExtent": {
 		"xmin": -180,
@@ -18,8 +18,8 @@
 		"xmax": 180,
 		"ymax": 90,
 		"spatialReference": {
-			"wkid": 4326,
-			"latestWkid": 4326
+			"wkid": 27700,
+			"latestWkid": 27700
 		}
 	},
 	"fullExtent": {
@@ -28,8 +28,8 @@
 		"xmax": 180,
 		"ymax": 90,
 		"spatialReference": {
-			"wkid": 4326,
-			"latestWkid": 4326
+			"wkid": 27700,
+			"latestWkid": 27700
 		}
 	},
 	"allowGeometryUpdates": false,

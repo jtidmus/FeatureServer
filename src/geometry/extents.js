@@ -14,8 +14,8 @@ module.exports = function (input) {
     xmax: coords[1][0],
     ymax: coords[1][1],
     spatialReference: {
-      wkid: 4326,
-      latestWkid: 4326
+      wkid: 27700,
+      latestWkid: 27700
     }
   }
 }
