@@ -50,7 +50,7 @@ function renderLayer (data = {}, options = {}) {
   json.extent.spatialReference = {
     wkid: 27700,
     latestWkid: 27700
-  };
+  }
 
   if (metadata.name) json.name = metadata.name
   if (metadata.description) json.description = metadata.description
@@ -115,7 +115,12 @@ function renderRestInfo (dataSourceRestInfo = {}) {
 
 function renderServer (server, { layers, tables }) {
   const json = _.cloneDeep(templates.server)
-  json.fullExtent = json.initialExtent = computeExtent(server.extent || json.fullExtent)
+  const extent = computeExtent(server.extent || json.fullExtent)
+  extent.spatialReference = {
+    wkid: 27700,
+    latestWkid: 27700
+  }
+  json.fullExtent = json.initialExtent = extent
   json.serviceDescription = server.description || ''
   json.layers = layers
   json.tables = tables

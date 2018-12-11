@@ -12,6 +12,8 @@ module.exports = query
  * @param {object} params
  */
 function query (data, params = {}) {
+  //console.log("params="+JSON.stringify(params));
+  
   // TODO clean up this series of if statements
   const filtersApplied = data.filtersApplied || {}
   const options = _.cloneDeep(params)
